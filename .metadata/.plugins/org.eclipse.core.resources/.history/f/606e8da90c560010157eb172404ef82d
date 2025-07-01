@@ -1,0 +1,13 @@
+package br.wellington.oliveira;
+
+import org.junit.jupiter.api.Test;
+
+public class ClienteTest {
+	
+	@Test
+	public void pesquisarCliente() {
+		
+		
+	}
+
+}

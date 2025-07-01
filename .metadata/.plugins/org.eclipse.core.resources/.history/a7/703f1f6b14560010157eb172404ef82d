@@ -1,0 +1,11 @@
+package br.wellington.oliveira.dao;
+
+public class IClienteDaoMock implements IClienteDAO {
+
+	@Override
+	public void salvar() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

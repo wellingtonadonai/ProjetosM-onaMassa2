@@ -1,0 +1,5 @@
+package br.wellington.oliveira.services;
+
+public interface IClienteservice {
+
+}

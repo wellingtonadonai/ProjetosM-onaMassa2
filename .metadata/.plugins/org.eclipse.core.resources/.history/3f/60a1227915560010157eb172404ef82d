@@ -1,0 +1,29 @@
+package br.wellington.oliveira.services;
+
+import br.wellington.oliveira.dao.ClienteDAO;
+import br.wellington.oliveira.dao.IClienteDAO;
+import br.wellington.oliveira.domain.Cliente;
+
+public class ClienteService implements IClienteservice {
+
+	private IClienteDAO clientedao;
+	
+	public ClienteService(IClienteDAO clientedao) {
+		
+		this.clientedao = clientedao;
+		
+	}
+	
+	@Override
+	public void salvar(Cliente cliente) {
+		
+		clientedao.salvar(cliente);
+	}
+
+	@Override
+	public Cliente buscarPorCpf(Long cpf) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

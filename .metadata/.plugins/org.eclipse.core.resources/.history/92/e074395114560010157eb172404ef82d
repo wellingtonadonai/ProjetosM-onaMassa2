@@ -1,0 +1,12 @@
+package br.wellington.oliveira.dao;
+
+import br.wellington.oliveira.domain.Cliente;
+
+public interface IClienteDAO {
+
+	void salvar(Cliente cliente);
+	
+	Cliente buscarPorCpf(Long cpf);
+
+	
+}

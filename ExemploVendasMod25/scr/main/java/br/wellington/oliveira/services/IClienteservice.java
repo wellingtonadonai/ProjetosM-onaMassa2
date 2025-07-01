@@ -1,0 +1,12 @@
+package br.wellington.oliveira.services;
+
+import br.wellington.oliveira.domain.Cliente;
+
+public interface IClienteservice {
+
+	void salvar(Cliente cliente);
+
+	Cliente buscarPorCpf(Long cpf);
+	
+
+}
