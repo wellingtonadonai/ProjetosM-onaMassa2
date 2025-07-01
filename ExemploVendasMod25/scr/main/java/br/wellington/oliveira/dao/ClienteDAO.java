@@ -7,7 +7,8 @@ public class ClienteDAO implements IClienteDAO {
 
 
 	@Override
-	public void salvar(Cliente cliente) {
+	public boolean salvar(Cliente cliente) {
+		return true;
 		// TODO Auto-generated method stub
 		
 	}
@@ -16,6 +17,13 @@ public class ClienteDAO implements IClienteDAO {
 	public Cliente buscarPorCpf(Long cpf) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Cliente excluirCliente(Long cpf) {
+		return null;
+		// TODO Auto-generated method stub
+		
 	}
 
 }

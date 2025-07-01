@@ -5,8 +5,9 @@ import br.wellington.oliveira.domain.Cliente;
 public class IClienteDaoMock implements IClienteDAO {
 
 	@Override
-	public void salvar(Cliente cliente) {
+	public boolean salvar(Cliente cliente) {
 		// TODO Auto-generated method stub
+		return true;
 		
 	}
 
@@ -16,6 +17,13 @@ public class IClienteDaoMock implements IClienteDAO {
 		
 		cliente.setCpf(cpf);
 		return cliente; 
+	}
+
+	@Override
+	public Cliente excluirCliente(Long cpf) {
+		return null;
+		// TODO Auto-generated method stub
+		
 	}
 
 

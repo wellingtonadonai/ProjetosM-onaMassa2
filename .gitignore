@@ -1,0 +1,14 @@
+# Ignorar configurações locais do Eclipse
+.metadata/
+*.class
+bin/
+*.log
+
+# Ignorar arquivos temporários
+*.tmp
+*.swp
+*.bak
+*.DS_Store
+
+# Ignorar arquivos do sistema operacional
+Thumbs.db

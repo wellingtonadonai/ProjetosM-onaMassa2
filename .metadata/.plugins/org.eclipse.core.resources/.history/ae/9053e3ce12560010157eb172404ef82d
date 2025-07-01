@@ -1,5 +1,0 @@
-package br.wellington.oliveira.dao;
-
-public interface IClienteDAO {
-
-}
