@@ -1,6 +1,7 @@
 package br.wellington.oliveira;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,54 +15,51 @@ import br.wellington.oliveira.services.IClienteservice;
 
 public class ClienteServiceTest {
 	
-	private IClienteservice clienteservice;
+	private IClienteservice clienteService;
 	
 	private Cliente cliente;
 	
 	public ClienteServiceTest() {
 		IClienteDAO dao = new IClienteDaoMock();
-		clienteservice = new ClienteService(dao);
+		clienteService = new ClienteService(dao);
 	}
 	
-	@BeforeEach
+	@Before
 	public void init() {
-		
 		cliente = new Cliente();
-		
-		cliente.setCpf(42254521829L);
-		cliente.setNome("wellington");
-		cliente.setTel(992845056L);
-		cliente.setEndereço("Jose lopes");
-		cliente.setNumero(427);
-		cliente.setCidade("Rubineia");
-		cliente.setEstado("São Paulo");
-		
-		
+		cliente.setCpf(12312312312L);
+		cliente.setNome("Rodrigo");
+		cliente.setCidade("São Paulo");
+		cliente.setEndereço("End");
+		cliente.setEstado("SP");
+		cliente.setNumero(10);
+		cliente.setTel(1199999999L);
 		
 	}
+	
 	@Test
 	public void pesquisarCliente() {
-		
-		Cliente clienteConsultado = clienteservice.buscarPorCpf(cliente.getCpf());
+		Cliente clienteConsultado = clienteService.buscarPorCpf(cliente.getCpf());
 		Assert.assertNotNull(clienteConsultado);
 	}
 	
 	@Test
 	public void salvarCliente() throws TipoChaveNaoEncontradaException {
-	
-		boolean retorno = clienteservice.salvar(cliente);
+		Boolean retorno = clienteService.salvar(cliente);
+		
 		Assert.assertTrue(retorno);
 	}
 	
 	@Test
 	public void excluirCliente() {
-		clienteservice.excluirCliente(cliente.getCpf());
-		
+		clienteService.excluirCliente(cliente.getCpf());
 	}
+	
 	@Test
 	public void alterarCliente() throws TipoChaveNaoEncontradaException {
-		cliente.setNome("wellington");
-		clienteservice.alterar(cliente);
-		Assert.assertEquals("wellington", cliente.getNome());
+		cliente.setNome("Rodrigo Pires");
+		clienteService.alterar(cliente);
+		
+		Assert.assertEquals("Rodrigo Pires", cliente.getNome());
 	}
 }

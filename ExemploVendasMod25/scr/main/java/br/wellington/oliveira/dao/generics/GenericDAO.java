@@ -14,11 +14,7 @@ import br.wellington.oliveira.exceptions.TipoChaveNaoEncontradaException;
 
 public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T> {
 
-	    //protected Map<Class, Map<Long, T>> map = new HashMap<>();
 
-	    /**
-	     * Necessário utilizar Singleton para ter apenas um MAP no sistema
-	     */
 	    private SingletonMap singletonMap;
 
 	    public abstract Class<T> getTipoClasse();

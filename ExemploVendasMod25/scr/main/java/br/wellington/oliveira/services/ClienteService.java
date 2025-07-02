@@ -1,42 +1,42 @@
 package br.wellington.oliveira.services;
 
 
+import java.security.Provider.Service;
+
 import br.wellington.oliveira.dao.IClienteDAO;
 import br.wellington.oliveira.domain.Cliente;
 import br.wellington.oliveira.exceptions.TipoChaveNaoEncontradaException;
+import br.wellington.oliveira.services.generics.GenericService;
 
-public class ClienteService implements IClienteservice {
 
-	private IClienteDAO clientedao;
+public class ClienteService extends GenericService<Cliente, Long> implements IClienteservice {
 	
-	public ClienteService(IClienteDAO clientedao) {
-		
-		this.clientedao = clientedao;
-		
-	}
+	//private IClienteDAO clienteDAO;
 	
-	@Override
-	public boolean salvar(Cliente cliente) throws TipoChaveNaoEncontradaException {
-		
-		return clientedao.cadastrar(cliente);
+	public ClienteService(IClienteDAO clienteDAO) {
+		super(clienteDAO);
+		//this.clienteDAO = clienteDAO;
 	}
 
-	@Override
-	public Cliente buscarPorCpf(Long cpf) {
-		// TODO Auto-generated method stub
-		return clientedao.consultar(cpf);
-	}
+//	@Override
+//	public Boolean salvar(Cliente cliente) throws TipoChaveNaoEncontradaException {
+//		return clienteDAO.cadastrar(cliente);
+//	}
 
 	@Override
-	public void excluirCliente(Long cpf) {
-		// TODO Auto-generated method stub
-		clientedao.excluir(cpf);
-}
-
-	@Override
-	public void alterar(Cliente cliente) throws TipoChaveNaoEncontradaException {
-		clientedao.alterar(cliente);
-		
+	public Cliente buscarPorCPF(Long cpf) {
+		return this.dao.consultar(cpf);
 	}
+
+//	@Override
+//	public void excluir(Long cpf) {
+//		clienteDAO.excluir(cpf);
+//	}
+//
+//	@Override
+//	public void alterar(Cliente cliente) throws TipoChaveNaoEncontradaException{
+//		clienteDAO.alterar(cliente);
+//	}
+
 }
 
