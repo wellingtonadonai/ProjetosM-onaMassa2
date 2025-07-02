@@ -1,35 +1,29 @@
 package br.wellington.oliveira.dao;
 
+import br.wellington.oliveira.dao.generics.GenericDAO;
 import br.wellington.oliveira.domain.Cliente;
 
-public class ClienteDAO implements IClienteDAO {
+public class ClienteDAO extends GenericDAO<Cliente> implements IClienteDAO {
 
-
+	public ClienteDAO() {
+		
+		super();
+		
+	}
+	
+	@Override
+	public Class<Cliente> getTipoClasse() {
+		// TODO Auto-generated method stub
+		return Cliente.class;
+	}
 
 	@Override
-	public boolean salvar(Cliente cliente) {
-		return true;
+	public void atualiarDados(Cliente entity, Cliente entityCadastrado) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public Cliente buscarPorCpf(Long cpf) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public Cliente excluirCliente(Long cpf) {
-		return null;
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public Object alterar(Cliente cliente) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

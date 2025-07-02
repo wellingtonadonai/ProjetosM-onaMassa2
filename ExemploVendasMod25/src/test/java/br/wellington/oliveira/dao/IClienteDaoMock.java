@@ -1,36 +1,43 @@
 package br.wellington.oliveira.dao;
 
+import java.util.Collection;
+
 import br.wellington.oliveira.domain.Cliente;
+import br.wellington.oliveira.exceptions.TipoChaveNaoEncontradaException;
 
 public class IClienteDaoMock implements IClienteDAO {
 
 	@Override
-	public boolean salvar(Cliente cliente) {
+	public Boolean cadastrar(Cliente entity) throws TipoChaveNaoEncontradaException {
 		// TODO Auto-generated method stub
-		return true;
+		return null;
+	}
+
+	@Override
+	public void excluir(Long valor) {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Cliente buscarPorCpf(Long cpf) {
+	public void alterar(Cliente entity) throws TipoChaveNaoEncontradaException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Cliente consultar(Long valor) {
 		Cliente cliente = new Cliente();
-		
-		cliente.setCpf(cpf);
-		return cliente; 
+		cliente.setCpf(valor);
+		return cliente;
 	}
 
 	@Override
-	public Cliente excluirCliente(Long cpf) {
-		return null;
+	public Collection<Cliente> buscarTodos() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
-	@Override
-	public Object alterar(Cliente cliente) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 

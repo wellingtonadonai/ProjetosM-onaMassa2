@@ -3,6 +3,7 @@ package br.wellington.oliveira.services;
 
 import br.wellington.oliveira.dao.IClienteDAO;
 import br.wellington.oliveira.domain.Cliente;
+import br.wellington.oliveira.exceptions.TipoChaveNaoEncontradaException;
 
 public class ClienteService implements IClienteservice {
 
@@ -15,25 +16,25 @@ public class ClienteService implements IClienteservice {
 	}
 	
 	@Override
-	public boolean salvar(Cliente cliente) {
+	public boolean salvar(Cliente cliente) throws TipoChaveNaoEncontradaException {
 		
-		return clientedao.salvar(cliente);
+		return clientedao.cadastrar(cliente);
 	}
 
 	@Override
 	public Cliente buscarPorCpf(Long cpf) {
 		// TODO Auto-generated method stub
-		return clientedao.buscarPorCpf(cpf);
+		return clientedao.consultar(cpf);
 	}
 
 	@Override
-	public Cliente excluirCliente(Long cpf) {
+	public void excluirCliente(Long cpf) {
 		// TODO Auto-generated method stub
-		return clientedao.excluirCliente(cpf);
+		clientedao.excluir(cpf);
 }
 
 	@Override
-	public void alterar(Cliente cliente) {
+	public void alterar(Cliente cliente) throws TipoChaveNaoEncontradaException {
 		clientedao.alterar(cliente);
 		
 	}

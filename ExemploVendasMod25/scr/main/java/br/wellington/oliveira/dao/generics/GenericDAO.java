@@ -1,6 +1,16 @@
 package br.wellington.oliveira.dao.generics;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.Collection;
+import java.util.Map;
+
+
+
+import anotação.TipoChave;
 import br.wellington.oliveira.domain.Persistente;
+import br.wellington.oliveira.exceptions.TipoChaveNaoEncontradaException;
 
 public abstract class GenericDAO<T extends Persistente> implements IGenericDAO<T> {
 

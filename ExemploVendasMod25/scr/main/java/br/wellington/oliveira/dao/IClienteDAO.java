@@ -1,16 +1,13 @@
 package br.wellington.oliveira.dao;
 
+import br.wellington.oliveira.dao.generics.IGenericDAO;
 import br.wellington.oliveira.domain.Cliente;
 
-public interface IClienteDAO {
+public interface IClienteDAO extends IGenericDAO <Cliente> {
 
-	boolean salvar(Cliente cliente);
 	
-	Cliente buscarPorCpf(Long cpf);
 
-	Cliente excluirCliente(Long cpf);
 
-	Object alterar(Cliente cliente);
 
 
 

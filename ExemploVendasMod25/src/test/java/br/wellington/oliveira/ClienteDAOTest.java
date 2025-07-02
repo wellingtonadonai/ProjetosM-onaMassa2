@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import br.wellington.oliveira.dao.IClienteDAO;
 import br.wellington.oliveira.dao.IClienteDaoMock;
 import br.wellington.oliveira.domain.Cliente;
+import br.wellington.oliveira.exceptions.TipoChaveNaoEncontradaException;
 
 public class ClienteDAOTest {
 	private IClienteDAO clientedao;
@@ -21,7 +22,7 @@ public class ClienteDAOTest {
 		
 	}
 	@BeforeEach
-	public void init() {
+	public void init() throws TipoChaveNaoEncontradaException {
 		
 		cliente = new Cliente();
 		
@@ -33,22 +34,22 @@ public class ClienteDAOTest {
 		cliente.setCidade("Rubineia");
 		cliente.setEstado("São Paulo");
 		
-		clientedao.salvar(cliente);
+		clientedao.cadastrar(cliente);
 		
 	}
 	@Test
 	public void pesquisarCliente() {
 		
 		
-		Cliente clienteConsultado = clientedao.buscarPorCpf(cliente.getCpf());
+		Cliente clienteConsultado = clientedao.consultar(cliente.getCpf());
 		
 		Assert.assertNotNull(clienteConsultado);
 	}
 	
 	@Test
-	public void salvarCliente() {
+	public void salvarCliente() throws TipoChaveNaoEncontradaException {
 		
-		 Boolean retorno = clientedao.salvar(cliente);
+		 Boolean retorno = clientedao.cadastrar(cliente);
 		Assert.assertTrue(retorno);
 	}
 
@@ -56,12 +57,12 @@ public class ClienteDAOTest {
 	@Test
 	public void excluirCliente() {
 		
-		clientedao.excluirCliente(cliente.getCpf());
+		clientedao.excluir(cliente.getCpf());
 		
 	}
 	
 	@Test
-	public void alterarCliente() {
+	public void alterarCliente() throws TipoChaveNaoEncontradaException {
 		
 		clientedao.alterar(cliente);
 		

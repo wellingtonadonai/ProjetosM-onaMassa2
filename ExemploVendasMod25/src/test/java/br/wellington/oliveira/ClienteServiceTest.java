@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import br.wellington.oliveira.dao.IClienteDAO;
 import br.wellington.oliveira.dao.IClienteDaoMock;
 import br.wellington.oliveira.domain.Cliente;
+import br.wellington.oliveira.exceptions.TipoChaveNaoEncontradaException;
 import br.wellington.oliveira.services.ClienteService;
 import br.wellington.oliveira.services.IClienteservice;
 
@@ -46,7 +47,7 @@ public class ClienteServiceTest {
 	}
 	
 	@Test
-	public void salvarCliente() {
+	public void salvarCliente() throws TipoChaveNaoEncontradaException {
 	
 		boolean retorno = clienteservice.salvar(cliente);
 		Assert.assertTrue(retorno);
@@ -58,7 +59,7 @@ public class ClienteServiceTest {
 		
 	}
 	@Test
-	public void alterarCliente() {
+	public void alterarCliente() throws TipoChaveNaoEncontradaException {
 		cliente.setNome("wellington");
 		clienteservice.alterar(cliente);
 		Assert.assertEquals("wellington", cliente.getNome());
