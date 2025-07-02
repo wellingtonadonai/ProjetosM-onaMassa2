@@ -10,7 +10,7 @@ public class IClienteDaoMock implements IClienteDAO {
 	@Override
 	public Boolean cadastrar(Cliente entity) throws TipoChaveNaoEncontradaException {
 		// TODO Auto-generated method stub
-		return null;
+		return true;
 	}
 
 	@Override
