@@ -10,6 +10,8 @@ public interface IClienteDAO {
 
 	Cliente excluirCliente(Long cpf);
 
+	Object alterar(Cliente cliente);
+
 
 
 	

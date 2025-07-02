@@ -31,5 +31,11 @@ public class ClienteService implements IClienteservice {
 		// TODO Auto-generated method stub
 		return clientedao.excluirCliente(cpf);
 }
+
+	@Override
+	public void alterar(Cliente cliente) {
+		clientedao.alterar(cliente);
+		
+	}
 }
 

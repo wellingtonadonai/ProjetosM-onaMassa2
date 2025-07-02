@@ -1,5 +1,7 @@
 package br.wellington.oliveira;
 
+
+
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -44,9 +46,24 @@ public class ClienteDAOTest {
 	}
 	
 	@Test
+	public void salvarCliente() {
+		
+		 Boolean retorno = clientedao.salvar(cliente);
+		Assert.assertTrue(retorno);
+	}
+
+	
+	@Test
 	public void excluirCliente() {
 		
 		clientedao.excluirCliente(cliente.getCpf());
+		
+	}
+	
+	@Test
+	public void alterarCliente() {
+		
+		clientedao.alterar(cliente);
 		
 	}
 	
